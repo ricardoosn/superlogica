@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS SUPERLOGICA;
+USE SUPERLOGICA;
+
+CREATE TABLE IF NOT EXISTS USUARIO (
+id INT NOT NULL AUTO_INCREMENT,
+cpf VARCHAR(11) NOT NULL,
+nome VARCHAR(45) NOT NULL,
+PRIMARY KEY (id));
+
+INSERT INTO USUARIO (cpf, nome) VALUES 
+('16798125050', 'Luke Skywalker'),
+('59875804045', 'Bruce Wayne'),
+('04707649025', 'Diane Prince'),
+('21142450040', 'Bruce Banner'),
+('83257946074', 'Harley Quinn'),
+('07583509025', 'Peter Parker');
+
+CREATE TABLE IF NOT EXISTS INFO (
+id INT NOT NULL AUTO_INCREMENT,
+cpf VARCHAR(11) NOT NULL,
+genero ENUM('M','F') NOT NULL,
+ano_nascimento INT NOT NULL,
+PRIMARY KEY(id));
+
+INSERT INTO INFO (cpf, genero, ano_nascimento) VALUES
+('16798125050', 'M', 1976),
+('59875804045', 'M', 1960),
+('04707649025', 'F', 1988),
+('21142450040', 'M', 1954),
+('83257946074', 'F', 1970),
+('07583509025', 'M', 1972);
+
+SELECT CONCAT(u.nome,' - ', i.genero) usuario, IF(YEAR(NOW()) - i.ano_nascimento > 50, 'SIM', 'NAO') maior_50_anos
+FROM USUARIO u
+INNER JOIN INFO i ON u.cpf = i.cpf
+WHERE NOT u.cpf = '59875804045' AND NOT i.genero = 'F'
+ORDER BY u.nome desc

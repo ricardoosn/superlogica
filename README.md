@@ -7,7 +7,7 @@ Ter o laravel e todas suas depedências instaladas.
 - Utilize o comando "php artisan migrate" para criar as tabelas no banco de dados
 - Utilize o comando "php artisan serve" para ligar o servidor do laravel
 - Acesse as rotas básicas de Usuário em formato de REST API apenas ( excluindo as rotas de views )
-- localhost:8000/api/users a rota base para acesso, sendo diferenciado pelos metódos de requisição ( GET, POST, PUT, PATCH, DELETE )
+- localhost:8000/api/users a rota base para acesso, sendo diferenciado pelos metódos de requisição (GET,POST,PUT,PATCH,DELETE)
 
 ## Exercício 2
 
